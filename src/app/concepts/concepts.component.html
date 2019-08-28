@@ -46,16 +46,36 @@
       <input type="text" [value]="properyBindingTitle"> <!-- Property Binding -->
 
       <hr>
-      
+      <h3>Event Binding</h3>
+      <button type="button" 
+        onclick="onBtnClick()">Click me -- will not work</button> 
+      <br>
+      <button type="button" 
+        (click)="onBtnClick($event)">Click to Login</button>
+
+      <hr>
+      <h3>Two Way Binding</h3>
+      <p>{{favCity}}</p>  <!-- SI -->
+      <input type="text" value="{{favCity}}"> <!-- SI--> <br><br>
+      <input type="text" [value]="favCity"> <!-- PB --> <br><br>
+      <input type="text" [(ngModel)]="favCity">
+
     </div>
 
     <!-- Custom Propery Binding -->
     <div class="tab-pane fade" id="cpb" role="tabpanel">
       <h2>Custom Prop Binding</h2>
+      
+      <!-- Step 3 -->
+      <app-cpb [myAge]></app-cpb>
+      <app-cpb [myAge]="20"></app-cpb>
+      <app-cpb [myAge]="40"></app-cpb>
+      <app-cpb [myAge]="getMyAge()"></app-cpb>
     </div>
 
     <div class="tab-pane fade" id="ceb" role="tabpanel">
       <h2>CEB</h2>
+      <app-ceb></app-ceb>
     </div>
 
     <div class="tab-pane fade" id="sd" role="tabpanel">
