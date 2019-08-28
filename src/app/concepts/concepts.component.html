@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="databinding-tab" data-toggle="tab" href="#databinding" role="tab"
+        aria-controls="home" aria-selected="true">Data Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="cpb-tab" data-toggle="tab" href="#cpb" role="tab" aria-controls="contact"
+        aria-selected="false">Custom
+        Property Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="ceb-tab" data-toggle="tab" href="#ceb" role="tab" aria-controls="contact"
+        aria-selected="false">Custom
+        Event Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="sd-tab" data-toggle="tab" href="#sd" role="tab" aria-selected="false">
+        Directives</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="pipes-tab" data-toggle="tab" href="#pipes" role="tab" aria-selected="false">Pipes</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+
+    <!-- String Interpolcation Content-->
+    <div class="tab-pane fade show active" id="databinding" role="tabpanel">
+      <h2>Data binding</h2>
+
+      <h3>{{ conceptName }}</h3>
+      <p>Experience of Trainer: {{exp}}+</p>
+      <p>{{skillsList[0]}}</p>
+      <p>{{isLoggedIn}}</p>
+      <p title="{{exp}}">Experience of Trainer: {{exp}}+</p>
+
+      <hr>
+      <h3>Property Binding</h3>
+      <p [title]="properyBindingTitle">Mouseover to see the title</p>
+      <input type="text" value="Arun"> <br>
+      <input type="text" value="{{properyBindingTitle}}"> <!-- SI --> <br>
+      <input type="text" [value]="properyBindingTitle"> <!-- Property Binding -->
+
+      <hr>
+      
+    </div>
+
+    <!-- Custom Propery Binding -->
+    <div class="tab-pane fade" id="cpb" role="tabpanel">
+      <h2>Custom Prop Binding</h2>
+    </div>
+
+    <div class="tab-pane fade" id="ceb" role="tabpanel">
+      <h2>CEB</h2>
+    </div>
+
+    <div class="tab-pane fade" id="sd" role="tabpanel">
+      <h2>Structural Directives</h2>
+    </div>
+
+    <div class="tab-pane fade" id="pipes" role="tabpanel">
+      <h2>Pipes </h2>
+    </div>
+  </div>
+  <hr style="border: solid 1px black;">
+</div>
