@@ -9,6 +9,7 @@ import { ContactService } from '../contact.service';
 })
 export class AddContactComponent implements OnInit {
 
+  isSaved: boolean; 
   //Step 1: Create Form group
   contactForm: FormGroup;
   
@@ -41,6 +42,9 @@ export class AddContactComponent implements OnInit {
     this.contactService.createContact(this.contactForm.value )
                         .subscribe( (res: any) => {  //Step3: get resp from the services
                           console.log(res); 
+                          if(res && res.id ){
+                            this.isSaved = true;
+                          }
                         });
 
   }
