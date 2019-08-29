@@ -6,6 +6,7 @@ import { CebComponent } from './ceb/ceb.component';
   templateUrl: './concepts.component.html',
   styles: []
 })
+
 export class ConceptsComponent implements OnInit, AfterViewInit {
 
   //for string interpolation
