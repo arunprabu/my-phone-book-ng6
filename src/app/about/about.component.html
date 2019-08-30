@@ -1,3 +1,28 @@
+<div>
+  <p>{{birthday}}</p>
+  <p>{{birthday | date}}</p>
+  <p>{{birthday | date: 'MM/dd/yyyy, hh:mm:ss a'}}</p> <!-- parameterised pipe-->
+
+  <p>{{birthday | date: 'MMM-dd-yyyy hh:mm:ss a'}}</p>
+</div>
+
 <p>
-  about works!
+  ng g p ellipsis
 </p>
+
+<p>
+  {{loremIpsum}}
+</p>
+
+<p>
+  {{loremIpsum | ellipsis }}
+</p>
+
+<p>
+  {{loremIpsum | ellipsis: '40' }}
+</p>
+
+
+<p>
+    {{loremIpsum | ellipsis: '120' }}
+  </p>

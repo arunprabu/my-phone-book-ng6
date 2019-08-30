@@ -39,13 +39,9 @@ export class AddContactComponent implements OnInit {
     //step 2: 
       //Step 2.1 Connect to service 
       //Step.2.2 send the form data to services 
-    this.contactService.createContact(this.contactForm.value )
-                        .subscribe( (res: any) => {  //Step3: get resp from the services
-                          console.log(res); 
-                          if(res && res.id ){
-                            this.isSaved = true;
-                          }
-                        });
+
+    let status = this.contactService.createContact(this.contactForm.value )
+    console.log(status);                        
 
   }
 }

@@ -14,11 +14,52 @@ export class ContactService {
     console.log(contactData); 
 
     //Step2: connect to rest api and send the above data 
-    return this.http.post("http://jsonplaceholder.typicode.com/users", contactData)
-              .pipe(map( (res: any) => { //Step3: get the resp from rest api 
-                console.log(res);
-                return res;    //Step 4: send the resp back to component 
-              }));
+
+    let promise = new Promise((resolve, reject) => {
+      this.http.post("http://jsonplaceholder.typicode.com/users", contactData)
+                .toPromise()
+                .then( (res: any) => {
+                  console.log(res);
+                  resolve(res);
+                })
+                .catch( err => {
+                  console.log(err);
+                  reject(err);
+                } )
+    });
+    return promise;
+    
+              
   }
 
+  //get contacts 
+  getContacts(){
+    console.log("Inside Service")
+    //1. send a get method call to rest api 
+    return this.http.get("http://jsonplaceholder.typicode.com/users")
+            .pipe(map( (res: any[]) => { //2. get the resp from rest api 
+              console.log(res);
+              return res;    //3. send the resp to the comp  
+            }));
+  }
+
+  //get contact by id 
+  getContactById(id){
+    //1. send a get method call to rest api 
+    return this.http.get("http://jsonplaceholder.typicode.com/users/"+id)
+            .pipe(map( (res: any[]) => { //2. get the resp from rest api 
+              console.log(res);
+              return res;    //3. send the resp to the comp  
+            }));
+  }
+
+  updatedContactById(updateableData){
+    //1. get the date from component.ts
+    return this.http.put("http://jsonplaceholder.typicode.com/users/"+updateableData.id, updateableData)
+            .pipe(map( (res: any[]) => { //2. get the resp from rest api 
+              console.log(res);
+              return res;    //3. send the resp to the comp  
+            }));
+  }
+  
 }
