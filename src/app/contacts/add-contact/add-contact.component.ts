@@ -31,17 +31,20 @@ export class AddContactComponent implements OnInit {
   }
 
   //Rest API submission flow
-  //Step 1: get the html form data in ts 
-  onAddContactBtnClick(){
+  
+  async onAddContactBtnClick(){
     console.log(" Submit Btn clicked ");
-    console.log(this.contactForm.value ) ;
+    console.log(this.contactForm.value ) ;//Step 1: get the html form data in ts 
 
     //step 2: 
       //Step 2.1 Connect to service 
       //Step.2.2 send the form data to services 
 
-    let status = this.contactService.createContact(this.contactForm.value )
-    console.log(status);                        
+    let status: any = await this.contactService.createContact(this.contactForm.value )
+    console.log(status);    
+    if(status && status.id ){
+      this.isSaved = true;
+    }                    
 
   }
 }
